@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack Peñas Athletic | Merchandream Textil</title>
+    <meta name="description" content="Equipamiento personalizado para Peñas del Athletic Club. Camisetas y pantalones con tu escudo y el del equipo.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        athletic: {
+                            red: '#EE2523',
+                            dark: '#1a1a1a',
+                            light: '#f3f4f6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Open Sans', sans-serif; }
+        h1, h2, h3, h4, .font-display { font-family: 'Montserrat', sans-serif; }
+        
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .cta-main {
+            background-image: linear-gradient(45deg, #EE2523 0%, #b91c1c 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(238, 37, 35, 0.6);
+        }
+        
+        .bg-stripes {
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.05),
+                rgba(255,255,255,0.05) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .modal-scroll::-webkit-scrollbar { width: 8px; }
+        .modal-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        .modal-scroll::-webkit-scrollbar-thumb { background: #EE2523; border-radius: 4px; }
+        
+        /* Estilos para el carrusel */
+        .carousel-btn {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+        }
+        .carousel-btn:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+        .carousel-dot {
+            transition: all 0.3s ease;
+        }
+        .carousel-dot.active {
+            background-color: #EE2523;
+            transform: scale(1.2);
+        }
+        /* Animación suave de fade para las imágenes */
+        .fade-enter {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="./assets/Dibujo01-NoBAK.png" alt="Logo Merchandream" class="h-12 w-auto object-contain">
+                <div>
+                    <a href="#" class="text-xl font-black uppercase tracking-tighter text-athletic-dark">
+                        Merchan<span class="text-athletic-red">dream</span> <span class="font-light">Textil</span>
+                    </a>
+                    <span class="hidden md:block text-[10px] font-bold text-gray-500 tracking-widest uppercase">Especialistas en Peñas</span>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#ventajas" class="text-sm font-bold text-gray-700 hover:text-athletic-red uppercase transition">Ventajas</a>
+                <a href="#catalogo" class="text-sm font-bold text-gray-700 hover:text-athletic-red uppercase transition">Packs</a>
+                <a href="mailto:direccion.general@merchandream.es" target="_blank" class="bg-athletic-dark text-white px-5 py-2 rounded-sm font-bold uppercase text-xs tracking-wide hover:bg-gray-800 transition">
+                    Solicitar Presupuesto
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-athletic-dark text-white overflow-hidden">
+        <div class="absolute inset-0 bg-stripes opacity-20"></div>
+        <div class="container mx-auto px-6 py-20 md:py-32 relative z-10 flex flex-col md:flex-row items-center">
+            <div class="w-full md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                <span class="inline-block py-1 px-3 bg-athletic-red text-white text-xs font-bold uppercase tracking-wider mb-4 rounded-sm">Temporada 2026</span>
+                <h1 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-6">
+                    La <br>sangre de tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-white">tribu</span>
+                </h1>
+                <p class="text-gray-300 text-lg mb-8 max-w-lg mx-auto md:mx-0">
+                    Merchandream: La réplica oficial de la primera equipación, personalizable con el escudo de tu peña. Camiseta y pantalón.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#catalogo" class="cta-main text-white font-bold py-4 px-8 rounded-sm text-center shadow-lg uppercase tracking-wide">
+                        Ver Packs
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center relative">
+                <div class="relative w-80 h-96 md:w-96 md:h-[500px] bg-gradient-to-b from-gray-700 to-gray-900 rounded-lg shadow-2xl border-4 border-white flex items-center justify-center overflow-hidden transform rotate-3 hover:rotate-0 transition duration-500">
+                     <div class="text-center p-6">
+                        <svg class="w-24 h-24 mx-auto text-athletic-red mb-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H4zM2 13a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"/></svg>
+                        <h3 class="text-2xl font-bold uppercase text-white">Tu Diseño Personalizado</h3>
+                        <p class="text-sm text-gray-400 mt-2">Pack Camiseta + Pantalón</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ventajas -->
+    <section id="ventajas" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase text-athletic-dark">¿Por qué elegirnos?</h2>
+                <div class="w-20 h-1 bg-athletic-red mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-xl transition text-center group">
+                    <div class="w-16 h-16 bg-red-50 text-athletic-red rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-athletic-red group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold uppercase mb-2">Escudo personalizado</h3>
+                    <p class="text-gray-600 text-sm">Integramos el escudo oficial de tu peña en alta definición.</p>
+                </div>
+                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-xl transition text-center group">
+                    <div class="w-16 h-16 bg-red-50 text-athletic-red rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-athletic-red group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold uppercase mb-2">Precios de Fábrica</h3>
+                    <p class="text-gray-600 text-sm">Venta directa sin intermediarios. Precios especiales por volumen.</p>
+                </div>
+                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-xl transition text-center group">
+                    <div class="w-16 h-16 bg-red-50 text-athletic-red rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-athletic-red group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold uppercase mb-2">Tejido Técnico</h3>
+                    <p class="text-gray-600 text-sm">Fabricado en poliéster, ideal para animar o jugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section id="catalogo" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-black text-athletic-dark uppercase">Nuestro <span class="text-athletic-red">Pack principal</span></h2>
+                    <p class="text-gray-500 mt-2">La mejor calidad para representar nuestros colores.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Producto 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden product-card cursor-pointer border-t-4 border-athletic-red" data-id="pack-estandar">
+                    <div class="h-64 bg-gray-200 relative flex items-center justify-center overflow-hidden group">
+                        <img src="./assets/01.PackPrincipal/Pic07.png" alt="Pack San Mamés" onerror="this.onerror=null;this.src=LOCAL_FALLBACK_IMAGE" class="h-full w-full object-contain p-4 group-hover:scale-105 transition duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4 opacity-0 group-hover:opacity-100 transition">
+                             <p class="text-white text-xs font-bold uppercase text-center">Click para ver más fotos</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold uppercase">Pack San Mamés</h3>
+                            <span class="bg-red-100 text-athletic-red text-xs font-bold px-2 py-1 rounded">Top Ventas</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4 border-b pb-4">
+                            Camiseta técnica rojiblanca + Pantalón negro corto.<br>
+                            <span class="font-bold text-athletic-dark mt-2 block">30€ IVA incluído + portes</span>
+                        </p>
+                        <button class="w-full bg-athletic-dark text-white px-4 py-3 rounded text-sm font-bold uppercase hover:bg-athletic-red transition flex justify-center items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Ver Detalles y Fotos
+                        </button>
+                    </div>
+                </div>
+                <!-- Aquí se añadirían más productos -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="bg-athletic-dark py-20 text-white">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <h2 class="text-4xl font-black uppercase mb-4">Contacta con nosotros</h2>
+            <p class="text-gray-400 mb-10">
+                Estamos listos para equipar a tu peña. Escríbenos para un presupuesto a medida.
+            </p>
+            <div class="bg-white/5 p-8 rounded-lg border border-white/10">
+                <a href="mailto:direccion.general@merchandream.es" target="_blank" class="flex items-center justify-center gap-3 bg-athletic-red text-white py-4 px-12 rounded font-bold hover:bg-red-700 transition w-full shadow-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Contactar Dirección General
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500 text-sm">© 2025 Merchandream Textil. Aupa Athletic.</p>
+        </div>
+    </footer>
+
+    <!-- NUEVO MODAL CON CARRUSEL -->
+    <div id="productModal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <!-- Contenedor Modal -->
+        <div class="bg-white w-full max-w-5xl rounded-lg shadow-2xl overflow-hidden flex flex-col md:flex-row relative max-h-[95vh] md:max-h-[85vh]">
+            
+            <button id="modalClose" class="absolute top-4 right-4 z-20 text-gray-500 hover:text-black bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- ZONA CARRUSEL (Izquierda en desktop, arriba en móvil) -->
+            <div class="w-full md:w-3/5 bg-gray-100 flex flex-col justify-center relative h-64 md:h-auto select-none">
+                
+                <!-- Main Image Container -->
+                <div class="h-full w-full relative flex items-center justify-center p-4 md:p-8">
+                    <img id="modalImage" src="" alt="Detalle Producto" class="max-w-full max-h-full object-contain drop-shadow-xl fade-enter">
+                </div>
+
+                <!-- Carousel Controls -->
+                <button onclick="prevSlide()" class="carousel-btn absolute left-4 top-1/2 transform -translate-y-1/2 rounded-full p-2 shadow-md z-10 text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button onclick="nextSlide()" class="carousel-btn absolute right-4 top-1/2 transform -translate-y-1/2 rounded-full p-2 shadow-md z-10 text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                <!-- Dots Indicators -->
+                <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2" id="carouselDots">
+                    <!-- Dots injected via JS -->
+                </div>
+            </div>
+
+            <!-- ZONA INFO (Derecha en desktop, abajo en móvil) -->
+            <div class="w-full md:w-2/5 p-6 md:p-10 overflow-y-auto modal-scroll flex flex-col justify-between bg-white relative">
+                <div>
+                    <span class="text-athletic-red font-bold text-xs uppercase tracking-widest mb-2 block">Colección 2026</span>
+                    <h3 id="modalTitle" class="text-3xl md:text-4xl font-black uppercase text-athletic-dark mb-4 leading-tight">Pack Título</h3>
+                    
+                    <div class="w-12 h-1 bg-athletic-red mb-6"></div>
+                    
+                    <p id="modalDesc" class="text-gray-600 mb-8 text-base leading-relaxed">Descripción del producto...</p>
+                    
+                    <!-- Feature highlights visuales -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 p-3 rounded border border-gray-100 text-center">
+                            <span class="block text-xl">🛡️</span>
+                            <span class="text-xs font-bold text-gray-600 uppercase mt-1 block">Escudo Incluido</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded border border-gray-100 text-center">
+                            <span class="block text-xl">🧵</span>
+                            <span class="text-xs font-bold text-gray-600 uppercase mt-1 block">Alta Calidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-gray-100">
+                    <div class="text-center md:text-left mb-2">
+                        <p class="text-sm text-gray-500">¿Interesado en este equipamiento?</p>
+                        <p class="text-xs text-gray-400">Te enviaremos presupuesto personalizado según cantidad.</p>
+                    </div>
+                    <a id="modalCta" href="#" target="_blank" class="block w-full bg-athletic-dark text-white text-center font-bold py-4 rounded shadow-lg hover:bg-athletic-red hover:shadow-red-500/30 transition transform hover:-translate-y-1 uppercase tracking-wide">
+                        Pedir Presupuesto
+                    </a>
+                    <button onclick="closeModal()" class="block w-full text-gray-400 text-xs hover:text-gray-600 font-bold uppercase py-2">
+                        Seguir mirando
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Placeholders generados para simular el carrusel (ya que no tenemos las fotos reales extras)
+        const LOCAL_FALLBACK_IMAGE = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48cmVjdCB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCcgZmlsbD0nI2YzZjRmNicvPjx0ZXh0IHg9JzUwJyB5PSc1MCcgZm9udC1mYW1pbHk9J3NhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nMTAnIGZpbGw9JyNFRTI1MjMnIHRleHQtYW5jaG9yPSdtZWRkbGUnIGRvbWluYW50LWJhc2VsaW5lPSdtZWRkbGUnPklNQUdFTiBOTyBFTkNPTlRSQURBPC90ZXh0Pjwvc3ZnPg==';
+        
+        // Generador de Placeholder SVG para demo
+        const getPlaceholder = (text, color) => `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23${color}'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='white'%3E${text}%3C/text%3E%3C/svg%3E`;
+
+        // Estado del carrusel
+        let currentImageIndex = 0;
+        let currentProductImages = [];
+
+        // Datos Actualizados: Soporte para múltiples imágenes (array 'images')
+        const products = {
+            'pack-estandar': {
+                title: 'Pack San Mamés',
+                // Array de imágenes para el carrusel
+                images: [
+                    './assets/01.PackPrincipal/Pic07.png', 
+                    './assets/01.PackPrincipal/Pic08.png',
+                    './assets/01.PackPrincipal/Pic01.png',
+                    './assets/01.PackPrincipal/Pic02.png',
+                    './assets/01.PackPrincipal/Pic03.png',
+                    './assets/01.PackPrincipal/Pic04.png',
+                    './assets/01.PackPrincipal/Pic06.png'
+                ],
+                // Actualizado con Material y Precio
+                desc: 'El clásico indiscutible. Camiseta técnica de alta transpirabilidad con diseño rojiblanco y pantalón negro reforzado. Incluye doble serigrafía (Escudo Athletic + Escudo Peña).<br><br><strong>Material:</strong> 145-160g/ ㎡ Tejido de secado rápido 100% poliéster.<br><br><span class="text-athletic-red font-black text-xl">30€ IVA incluído + portes</span>'
+            }
+        };
+
+        const modal = document.getElementById('productModal');
+        const modalImage = document.getElementById('modalImage');
+        const dotsContainer = document.getElementById('carouselDots');
+
+        // --- LÓGICA DEL CARRUSEL ---
+
+        function updateCarouselDisplay() {
+            // 1. Actualizar imagen con pequeña animación de re-entrada
+            modalImage.classList.remove('fade-enter');
+            void modalImage.offsetWidth; // Trigger reflow
+            modalImage.src = currentProductImages[currentImageIndex] || LOCAL_FALLBACK_IMAGE;
+            modalImage.classList.add('fade-enter');
+
+            // 2. Actualizar puntos (dots)
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentImageIndex) {
+                    dot.classList.add('active', 'bg-athletic-red', 'w-4');
+                    dot.classList.remove('bg-gray-300', 'w-2');
+                } else {
+                    dot.classList.remove('active', 'bg-athletic-red', 'w-4');
+                    dot.classList.add('bg-gray-300', 'w-2');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentImageIndex = (currentImageIndex + 1) % currentProductImages.length;
+            updateCarouselDisplay();
+        }
+
+        function prevSlide() {
+            currentImageIndex = (currentImageIndex - 1 + currentProductImages.length) % currentProductImages.length;
+            updateCarouselDisplay();
+        }
+
+        function setSlide(index) {
+            currentImageIndex = index;
+            updateCarouselDisplay();
+        }
+
+        // --- LÓGICA DEL MODAL ---
+
+        function openModal(id) {
+            const data = products[id];
+            if(!data) return;
+
+            // Setup Contenido Texto
+            document.getElementById('modalTitle').innerText = data.title;
+            // CAMBIO IMPORTANTE: Usamos innerHTML para permitir formato HTML en la descripción (negritas, saltos de línea)
+            document.getElementById('modalDesc').innerHTML = data.desc;
+            
+            // Setup Carrusel
+            currentProductImages = data.images;
+            currentImageIndex = 0;
+            
+            // Generar Dots dinámicamente según número de fotos
+            dotsContainer.innerHTML = currentProductImages.map((_, idx) => `
+                <button onclick="setSlide(${idx})" class="carousel-dot h-2 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-athletic-red w-4' : 'bg-gray-300 w-2'}"></button>
+            `).join('');
+
+            updateCarouselDisplay();
+
+            // Actualizar CTA Email
+            const modalCta = document.getElementById('modalCta');
+            modalCta.href = `mailto:direccion.general@merchandream.es?subject=Presupuesto: ${data.title}&body=Hola, me gustaría recibir presupuesto para el ${data.title}.`;
+
+            // Mostrar Modal
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // --- EVENT LISTENERS ---
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', () => openModal(card.dataset.id));
+        });
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
+
+        // Soporte Teclado para Carrusel
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('hidden')) return;
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'Escape') closeModal();
+        });
+
+    </script>
+</body>
+</html>
